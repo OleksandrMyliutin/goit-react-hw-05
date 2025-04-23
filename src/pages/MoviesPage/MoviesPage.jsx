@@ -1,13 +1,12 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { fetchResults } from '../../services/api';
 import Loader from '../../components/Loader/Loader';
+import SearchBar from '../../components/SearchBar/SearchBar';
+import ErrorMessage from '../../components/ErrorMessage/ErrorMessage';
+import LoadMoreBtn from '../../components/LoadMoreBtn/LoadMoreBtn';
+import GalleryResult from '../../components/GalleryResults/GalleryResults';
 import {  useSearchParams } from 'react-router-dom';
 import s from './MoviesPage.module.css';
-
-const SearchBar = React.lazy(() => import('../../components/SearchBar/SearchBar'));
-const LoadMoreBtn = React.lazy(() => import('../../components/LoadMoreBtn/LoadMoreBtn'));
-const GalleryResult = React.lazy(() => import('../../components/GalleryResults/GalleryResults'));
-const ErrorMessage = React.lazy(() => import('../../components/ErrorMessage/ErrorMessage'));
 
 
 const MoviesPage = () => {
