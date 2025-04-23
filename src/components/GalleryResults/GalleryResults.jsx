@@ -1,5 +1,5 @@
 import { Link, useLocation } from 'react-router-dom';
-import s from './galleryResults.module.css';
+import s from './GalleryResults.module.css';
 
 const GalleryResult = ({ results }) => {
   const location = useLocation();
