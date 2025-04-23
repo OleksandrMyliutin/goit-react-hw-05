@@ -1,0 +1,64 @@
+.castContainer {
+    padding: 30px 20px;
+    color: white;
+}
+
+.castGrid {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.card {
+    background-color: #1a1a2e;
+    border-radius: 12px;
+    padding: 20px;
+    display: flex;
+    gap: 20px;
+    align-items: flex-start;
+    box-shadow: 0 0 10px #00c3ff;
+    transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+.card:hover {
+    box-shadow: 0 0 15px #00c3ff, 0 0 25px #00c3ff;
+    transform: translateY(-2px);
+}
+
+.avatar {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid #00c3ff;
+}
+
+.info {
+    flex: 1;
+}
+
+.name {
+    font-weight: 700;
+    font-size: 18px;
+    color: #00c3ff;
+    margin-bottom: 4px;
+}
+
+.content {
+    font-size: 15px;
+    color: #ddd;
+    margin-top: 10px;
+    line-height: 1.6;
+    white-space: pre-wrap;
+}
+
+.loading,
+.wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 40px;
+}

@@ -1,6 +1,6 @@
 import Modal from 'react-modal';
 import s from './ImageModal.module.css';
-
+import { NavLink } from 'react-router-dom'
 Modal.setAppElement('#root');
 
 const ImageModal = ({ isOpen, movie, onClose }) => {
@@ -27,6 +27,7 @@ const ImageModal = ({ isOpen, movie, onClose }) => {
       <h2>{movie.title || 'No title'}</h2>
       <p><strong>Rating:</strong> {movie.vote_average ?? 'N/A'}</p>
       <p>{movie.overview || 'No overview available'}</p>
+      <NavLink to={"movies/"+movie.id.toString()}>More about film..</NavLink>
     </Modal>
   );
 };

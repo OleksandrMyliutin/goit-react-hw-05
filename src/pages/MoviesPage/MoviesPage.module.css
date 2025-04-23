@@ -1,0 +1,83 @@
+.container{
+    min-height: 100vh;
+    padding: 40px 20px;
+    background: linear-gradient(135deg, #121212, #1f1f1f 60%, #292929);
+    color: white;
+    font-family: 'Segoe UI', sans-serif;
+}
+
+.searchForm {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 30px;
+}
+
+.searchInput {
+    padding: 10px 20px;
+    font-size: 16px;
+    border-radius: 8px;
+    border: 2px solid #00c3ff;
+    background-color: #0f0f1f;
+    color: #fff;
+    outline: none;
+    width: 300px;
+    transition: box-shadow 0.3s ease-in-out;
+}
+
+.searchInput:focus {
+box-shadow: 0 0 10px #00c3ff, 0 0 20px #00c3ff;
+}
+
+.searchBtn {
+    padding: 10px 20px;
+    font-size: 16px;
+    font-weight: bold;
+    background-color: transparent;
+    color: #00c3ff;
+    border: 2px solid #00c3ff;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    text-transform: uppercase;
+}
+
+.searchBtn:hover {
+background-color: #00c3ff;
+color: #0f0f1f;
+box-shadow: 0 0 10px #00c3ff, 0 0 20px #00c3ff;
+}
+
+.searchBtn:active {
+transform: scale(0.97);
+}
+
+.trendsTitle {
+    font-size: 40px;
+    font-weight: 800;
+    text-align: center;
+    color: #00c3ff;
+    text-shadow:
+        0 0 5px #00c3ff,
+        0 0 10px #00c3ff;
+    margin-bottom: 20px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+}
+
+@keyframes glowIn {
+    0% {
+    opacity: 0;
+    text-shadow: none;
+    }
+    100% {
+    opacity: 1;
+    text-shadow:
+        0 0 5px #00c3ff,
+        0 0 10px #00c3ff;
+    }
+}
+
+.trendsTitle {
+    animation: glowIn 1s ease-in-out;
+}
