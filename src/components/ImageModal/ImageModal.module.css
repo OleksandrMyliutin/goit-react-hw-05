@@ -1,0 +1,44 @@
+.overlay {
+  background-color: rgba(0, 0, 0, 0.85);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000 !important;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+
+.modal {
+  background: #1a1a2e;
+  color: white;
+  padding: 30px;
+  border-radius: 12px;
+  max-width: 600px;
+  width: 90%;
+  position: relative;
+  box-shadow: 0 0 15px #00c3ff, 0 0 30px #00c3ff;
+  overflow-y: auto;
+  max-height: 90vh;
+  z-index: 2000 !important;
+}
+
+.poster {
+  width: 100%;
+  border-radius: 10px;
+  margin-bottom: 20px;
+}
+
+.closeBtn {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  font-size: 24px;
+  background: transparent;
+  border: none;
+  color: #00c3ff;
+  cursor: pointer;
+  z-index: 3000;
+}

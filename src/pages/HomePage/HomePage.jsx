@@ -3,6 +3,7 @@ import { fetchResults } from '../../services/api';
 import s from './HomePage.module.css'
 import Loader from '../../components/Loader/Loader';
 import LoadMoreBtn from '../../components/LoadMoreBtn/LoadMoreBtn';
+import ImageModal from '../../components/ImageModal/ImageModal';
 
 const HomePage = () => {
     const [results, setResults] = useState([]);
@@ -12,6 +13,17 @@ const HomePage = () => {
     };
     const [loading, setLoading] = useState(false);
     const [totalPages, setTotalPages] = useState(0);
+    const [modalIsOpen, setModalIsOpen] = useState(false);
+    const [selectedImage, setSelectedImage] = useState(null);
+    const openModal = (movie) => {
+        setSelectedImage(movie);
+        setModalIsOpen(true);
+    };
+    
+    const closeModal = () => {
+      setModalIsOpen(false);
+      setSelectedImage(null);
+    };
     useEffect(() => {
         const abortController = new AbortController();
         const getData = async() => {
@@ -39,12 +51,13 @@ const HomePage = () => {
             <h2>Home</h2>
             <div className={s.movieList}>
                 {results.map((item) => (
-                    <div key={item.id} className={s.movieItem}>
+                    <div key={item.id} className={s.movieItem} onClick={() => openModal(item)}>
                         <img src={`https://image.tmdb.org/t/p/w500${item.poster_path}`} alt={item.title} />
                         { item.title.length <= 47 ? <h3>{item.title}</h3> : <h3>{item.title.slice(0, 47)+"..."}</h3>}
                     </div>
                 ))}
             </div>
+            <ImageModal isOpen={modalIsOpen} movie={selectedImage} onClose={closeModal} />
             {loading && <div className={s.wrapper}><Loader loading={loading}/></div>}
             {results.length > 0 && !loading && page < totalPages && <div className={s.loadMoreContainer}><LoadMoreBtn onClick={handleLoadMore}/></div>}
         </div>
