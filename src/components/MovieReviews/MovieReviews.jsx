@@ -43,7 +43,7 @@ const MovieReviews = () => {
         <div className={s.castContainer}>
             <h3>Reviews</h3>
             {loading && <p>Loading...</p>}
-            <ul className={s.castGrid}>
+            { reviews.length == 0 ? <p><span className={s.span}>No one left a comment</span></p> :<ul className={s.castGrid}>
             {reviews.map((author) => (
                 <li key={author.id} className={s.card}>
                     <img
@@ -63,7 +63,7 @@ const MovieReviews = () => {
                     </div>
                 </li>
             ))}
-            </ul>
+            </ul>}
         </div>
     )
 }
