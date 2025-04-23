@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { fetchResults } from '../../services/api';
+import { fetchResultsTrends } from '../../services/api';
 import s from './HomePage.module.css'
 import Loader from '../../components/Loader/Loader';
 import LoadMoreBtn from '../../components/LoadMoreBtn/LoadMoreBtn';
@@ -30,7 +30,7 @@ const HomePage = () => {
             const signal = abortController.signal;
             try{
                 setLoading(true);
-                const data = await fetchResults(page, signal);
+                const data = await fetchResultsTrends(page, signal);
                 setResults( prev => [...prev, ...data.results]);
                 setTotalPages(data.total_pages)
             }

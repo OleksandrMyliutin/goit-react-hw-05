@@ -1,7 +1,7 @@
 import axios from 'axios';
 import { ACCESSKEY } from "../accesskey/key";
 
-export const fetchResults = async ( page, signal) =>{
+export const fetchResultsTrends = async ( page, signal) =>{
     const options = {
         headers: {
         accept: 'application/json',
