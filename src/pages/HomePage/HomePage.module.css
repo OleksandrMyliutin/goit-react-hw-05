@@ -93,3 +93,35 @@
         0 0 12px #00c3ff,
         0 0 24px #00c3ff;
 }
+
+.trendsTitle {
+    font-size: 40px;
+    font-weight: 800;
+    text-align: center;
+    color: #00c3ff;
+    text-shadow:
+        0 0 5px #00c3ff,
+        0 0 10px #00c3ff,
+        0 0 20px #00c3ff;
+    margin-bottom: 20px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+}
+
+@keyframes glowIn {
+    0% {
+    opacity: 0;
+    text-shadow: none;
+    }
+    100% {
+    opacity: 1;
+    text-shadow:
+        0 0 5px #00c3ff,
+        0 0 10px #00c3ff,
+        0 0 20px #00c3ff;
+    }
+}
+
+.trendsTitle {
+    animation: glowIn 1s ease-in-out;
+}

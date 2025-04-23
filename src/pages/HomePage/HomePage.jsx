@@ -21,8 +21,8 @@ const HomePage = () => {
     };
     
     const closeModal = () => {
-      setModalIsOpen(false);
-      setSelectedImage(null);
+        setModalIsOpen(false);
+        setSelectedImage(null);
     };
     useEffect(() => {
         const abortController = new AbortController();
@@ -48,7 +48,7 @@ const HomePage = () => {
     }, [page]);
     return (
         <div className={s.container}>
-            <h2>Home</h2>
+            <h2 className={s.trendsTitle}>Trends</h2>
             <div className={s.movieList}>
                 {results.map((item) => (
                     <div key={item.id} className={s.movieItem} onClick={() => openModal(item)}>
