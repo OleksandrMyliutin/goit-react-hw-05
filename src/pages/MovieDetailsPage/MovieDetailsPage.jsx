@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from 'react'
-import { NavLink, Outlet, useParams } from 'react-router-dom'
+import React, { useEffect, useRef, useState } from 'react'
+import { Link, NavLink, Outlet, useLocation, useParams } from 'react-router-dom'
 import { fetchResultsById } from '../../services/api';
 import s from './MovieDetailsPage.module.css'
 import Loader from '../../components/Loader/Loader';
@@ -8,6 +8,10 @@ const MovieDetailsPage = () => {
     const { movieId } = useParams();
     const [movie, setMovie] = useState(null);
     const [loading, setLoading] = useState(false);
+
+    const location = useLocation();
+    const goBackRef = useRef(location.state ?? '/movies');
+
     useEffect(() => {
         const abortController = new AbortController();
         const getData = async() => {
@@ -44,6 +48,7 @@ const MovieDetailsPage = () => {
 
     return (
         <div className={s.container}>
+            <Link className={s.goBack} to={goBackRef.current}>Go back</Link>
             {loading && <div className={s.wrapper}><Loader loading={loading}/></div>}
             <h2>{movie.title}</h2>
             <div className={s.flexContainer}>
@@ -58,11 +63,11 @@ const MovieDetailsPage = () => {
                     <p><strong>Rating:</strong> {movie.vote_average}</p>
                 </div>
             </div>
-                    <nav className={s.navLinks}>
-                    <NavLink to="cast">Cast</NavLink>
-                    <NavLink to="reviews">Reviews</NavLink>
-                    </nav>
-                    <Outlet />
+                <nav className={s.navLinks}>
+                <NavLink to="cast">Cast</NavLink>
+                <NavLink to="reviews">Reviews</NavLink>
+                </nav>
+                <Outlet />
         </div>
     );
 }

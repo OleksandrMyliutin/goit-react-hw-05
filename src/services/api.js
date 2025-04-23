@@ -1,6 +1,20 @@
 import axios from 'axios';
 import { ACCESSKEY } from "../accesskey/key";
 
+export const fetchResults = async (query, page, signal) => {
+    const response = await axios.get("https://api.themoviedb.org/3/search/movie", {
+        headers:{
+            Authorization: `Bearer ${ACCESSKEY}`
+        },
+        params:{
+        query: query,
+        page: page
+        },
+        signal: signal,
+    })
+    return response.data;
+}
+
 export const fetchResultsTrends = async ( page, signal) =>{
     const options = {
         headers: {
