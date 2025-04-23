@@ -1,0 +1,33 @@
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #1e1e1e;
+    padding: 16px 32px;
+    color: white;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.nav {
+    display: flex;
+    gap: 16px;
+}
+
+.link {
+    color: white;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 1.2em;
+    transition: color 0.3s ease;
+}
+
+.link:hover {
+    color: #00bcd4;
+}
+
+.active {
+    color: #00bcd4;
+    font-weight: bold;
+}
