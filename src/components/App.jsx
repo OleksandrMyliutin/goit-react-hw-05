@@ -1,7 +1,7 @@
 // import './App.css'
 import { Routes, Route } from 'react-router-dom'
 import Navigation from './Navigation/Navigation'
-import React from 'react';
+import React, { Suspense } from 'react';
 
 
 const NotFoundPage = React.lazy(() =>
@@ -26,6 +26,7 @@ const MovieReviews = React.lazy(() =>
 function App() {
   return (
     <div>
+      <Suspense/>
       <Navigation />
       <Routes>
         <Route path="/" element={<HomePage />} />
