@@ -4,7 +4,7 @@ import s from './HomePage.module.css'
 import Loader from '../../components/Loader/Loader';
 import LoadMoreBtn from '../../components/LoadMoreBtn/LoadMoreBtn';
 import ImageModal from '../../components/ImageModal/ImageModal';
-import MovieList from '../../components/MovieList/MovieList';
+
 
 
 const HomePage = () => {

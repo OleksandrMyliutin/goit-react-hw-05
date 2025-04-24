@@ -63,3 +63,15 @@ export const fetchMovieReviews = async (movieId, signal) => {
     return response.data.results;
 };
 
+export const fetchMovieTrailer = async (movieId, signal) => {
+    const response = await axios.get(`https://api.themoviedb.org/3/movie/${movieId}/videos`, {
+    headers: {
+        accept: 'application/json',
+        Authorization: `Bearer ${ACCESSKEY}`,
+    },
+        signal,
+    });
+    const trailer = response.data.results.find(video => video.type === 'Trailer' && video.site === 'YouTube');
+
+    return trailer ? trailer.key : null;
+};
