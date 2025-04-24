@@ -4,7 +4,7 @@ import Loader from '../../components/Loader/Loader';
 import SearchBar from '../../components/SearchBar/SearchBar';
 import ErrorMessage from '../../components/ErrorMessage/ErrorMessage';
 import LoadMoreBtn from '../../components/LoadMoreBtn/LoadMoreBtn';
-import GalleryResult from '../../components/GalleryResults/GalleryResults';
+import MovieList from '../../components/MovieList/MovieList';
 import {  useSearchParams } from 'react-router-dom';
 import s from './MoviesPage.module.css';
 
@@ -63,7 +63,7 @@ return (
         {!loading && results.length === 0 && query && 
         (<div className={s.noResults}><ErrorMessage query={query} /></div>)}
         <ul className={s.gallery} ref={galleryRef}>
-            <GalleryResult results={results} />
+            <MovieList results={results} />
         </ul>
         {loading && (
             <div className={s.loaderWrapper}>

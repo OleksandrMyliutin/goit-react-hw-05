@@ -2,6 +2,7 @@
 import { Routes, Route } from 'react-router-dom'
 import Navigation from './Navigation/Navigation'
 import React, { Suspense } from 'react';
+import Loader from './Loader/Loader';
 
 
 const NotFoundPage = React.lazy(() =>
@@ -26,17 +27,18 @@ const MovieReviews = React.lazy(() =>
 function App() {
   return (
     <div>
-      <Suspense/>
-      <Navigation />
-      <Routes>
-        <Route path="/" element={<HomePage />} />
-        <Route path="/movies" element={<MoviesPage />} />
-        <Route path="/movies/:movieId" element={<MovieDetailsPage />}>
-          <Route path="cast" element={<MovieCast />} />
-          <Route path="reviews" element={<MovieReviews />} />
-        </Route>
-        <Route path="*" element={<NotFoundPage />} />
-      </Routes>
+      <Suspense fallback={<Loader loading={true} />}>
+        <Navigation />
+        <Routes>
+          <Route path="/" element={<HomePage />} />
+          <Route path="/movies" element={<MoviesPage />} />
+          <Route path="/movies/:movieId" element={<MovieDetailsPage />}>
+            <Route path="cast" element={<MovieCast />} />
+            <Route path="reviews" element={<MovieReviews />} />
+          </Route>
+          <Route path="*" element={<NotFoundPage />} />
+        </Routes>
+      </Suspense>
     </div>
   );
 }

@@ -4,6 +4,7 @@ import s from './HomePage.module.css'
 import Loader from '../../components/Loader/Loader';
 import LoadMoreBtn from '../../components/LoadMoreBtn/LoadMoreBtn';
 import ImageModal from '../../components/ImageModal/ImageModal';
+import MovieList from '../../components/MovieList/MovieList';
 
 
 const HomePage = () => {
@@ -51,14 +52,8 @@ const HomePage = () => {
         <div className={s.container}>
             <h2 className={s.trendsTitle}>Trends</h2>
             <ul className={s.movieList}>
-                {results.map((item) => (
-                    <li key={item.id} className={s.movieItem} onClick={() => openModal(item)}>
-                        <img src={`https://image.tmdb.org/t/p/w500${item.poster_path}`} alt={item.title} />
-                        { item.title.length <= 47 ? <h3>{item.title}</h3> : <h3>{item.title.slice(0, 47)+"..."}</h3>}
-                    </li>
-                ))}
+                <MovieList results={results} onClick={openModal} />
             </ul>
-            <ImageModal isOpen={modalIsOpen} movie={selectedImage} onClose={closeModal} />
             {loading && <div className={s.wrapper}><Loader loading={loading}/></div>}
             {results.length > 0 && !loading && page < totalPages && <div className={s.loadMoreContainer}><LoadMoreBtn onClick={handleLoadMore}/></div>}
         </div>

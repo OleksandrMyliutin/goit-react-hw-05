@@ -1,7 +1,7 @@
 import { Link, useLocation } from 'react-router-dom';
-import s from './GalleryResults.module.css';
+import s from './MovieList.module.css';
 
-const GalleryResult = ({ results }) => {
+const MovieList = ({ results }) => {
   const location = useLocation();
   return results.map(movie => (
     <li key={movie.id} className={s.card}>
@@ -21,4 +21,4 @@ const GalleryResult = ({ results }) => {
   ));
 };
 
-export default GalleryResult;
+export default MovieList;
